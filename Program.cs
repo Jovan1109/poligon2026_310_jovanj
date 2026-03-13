@@ -11,6 +11,7 @@ namespace poligon2026_310_jovanj
         static void Main(string[] args)
         {
             //Jovan Jovanovic
+            Console.WriteLine("pozdrav za 3/10");
         }
     }
 }
