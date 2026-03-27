@@ -26,16 +26,35 @@ namespace poligon2026_310_jovanj
             //Console.WriteLine(vektor.VP(OA, AC));
             //Console.ReadKey();
 
-            tacka A = new tacka(1, 2);
-            tacka B = new tacka(3, 2);
-            tacka C = new tacka(2, 3);
-            tacka D = new tacka(2, 1);
-            vektor AB = new vektor(A, B);
-            Console.WriteLine(ravan.SIS(AB, C, D));
-            Console.WriteLine("Koliko temena?");
-            int n = Convert.ToInt32(Console.ReadLine());
-            poligon prvi = new poligon(n);
-            prvi.unos();
+            //tacka A = new tacka(1, 2);
+            // tacka B = new tacka(3, 2);
+            // tacka C = new tacka(2, 3);
+            //tacka D = new tacka(2, 2);
+            // Console.WriteLine("Kolko temena?");
+            //int n = Convert.ToInt32(Console.ReadLine());
+            // poligon prvi = new poligon(n);
+            // prvi.unos();
+            //prvi.stampaj();
+            //prvi.snimi();
+            //poligon jovan = new poligon(4);
+            //jovan.unos();
+            //jovan.snimi();
+            //jovan.stampaj();
+            //double obim = jovan.obim();
+            //Console.WriteLine("Obim=" + obim.ToString());
+
+            //poligon jovan = new poligon(6);
+            //jovan.unos();
+            //jovan.snimi();
+            poligon jovan = poligon.ucitaj();
+            Console.WriteLine(jovan.prost());
+            
+            
+            //Vektor[] str = jovan.stranice();
+            //Console.WriteLine(Vektor.seku_se(str[0], str[2]));
+            // 0 2 ne
+            // 1 3 ne
+
         }
     }
 }

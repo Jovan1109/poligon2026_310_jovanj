@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace poligon2026_310_jovanj
 {
-    internal class poligon
+    class poligon
     {
         int br_temena;
         tacka[] teme;
+
         public poligon(int n)
         {
             br_temena = n;
@@ -64,30 +65,62 @@ namespace poligon2026_310_jovanj
             ulaz.Close();
             return novi;
         }
-         public void obim()
+        public Vektor[] stranice()
         {
-            for(int i=0; <= br_temena; i++)
+            Vektor[] str = new Vektor[br_temena];
+            for (int i = 0; i < br_temena - 1; i++)
             {
-                int prvi = 1;
-                int drugi = (i+1) % br_temena;
-
-                 
+                str[i] = new Vektor(teme[i], teme[i + 1]);
+                str[br_temena-1] = new Vektor(teme[br_temena-1], teme[0]);
             }
+            return str;
         }
-
-        public vektor[] stranice()
+        public double obim()
         {
-            vektor[] str = new vektor[br_temena];
-            for (int i =0; i< br_temena; i++)
+            Vektor[] str = this.stranice();
+            double obim = 0;
+            for (int i=0; i< br_temena; i++)
             {
-                str[i]= new vektor(teme[i], teme[i+1]);
+                obim += str[i].duzina();
             }
+            return obim;
         }
 
-        double duzina()
+        public bool prost()
         {
-            tacka centr = this.centriraj();
-            return centr.d();
+            bool isto = false;
+            for (int i = 0; i< br_temena; i++)
+            {
+                for (int j = i+1; j< br_temena; j++)
+                {
+                    if(tacka.jednake(teme[i], teme[j]))
+                    {
+                        isto = true;
+                    }
+                }
+            }
+            Console.WriteLine("isto=" + isto.ToString());
+            if (isto) return false;
+
+            Vektor[] str = stranice();
+            bool presek = false;
+            for(int i=0; i <br_temena-2; i++)
+            {
+                int kraj;
+                if (i == 0) kraj = br_temena - 1;
+                else kraj = br_temena;
+                for( int j=0; j < kraj ; j++)
+                {
+                    if (Vektor.seku_se(str[i], str[j])) presek = true;
+                    Console.WriteLine("presek=" + presek.ToString());
+                }
+            }
+            
+            if (presek) return false;
+            
+            else return true;
+            
         }
+
     }
 }
