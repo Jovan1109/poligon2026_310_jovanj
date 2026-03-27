@@ -8,20 +8,21 @@ namespace poligon2026_310_jovanj
 
 
 {
-    internal class vektor
+    class Vektor
     {
         public tacka pocetak;
         public tacka kraj;
-        public vektor(tacka A, tacka B)
+        public Vektor(tacka a, tacka b)
         {
-            pocetak = A;
-            kraj = B;
+            pocetak = a;
+            kraj = b;
+
         }
-        public vektor(tacka A)
+        public Vektor(tacka a)
         {
             tacka poc = new tacka();
             pocetak = poc;
-            kraj = A;
+            kraj = a;
         }
         public tacka centriraj()
         {
@@ -29,19 +30,23 @@ namespace poligon2026_310_jovanj
             double y = kraj.y - pocetak.y;
             return new tacka(x, y);
         }
-        static public double SP(vektor a, vektor b)
+        static public double SP(Vektor a, Vektor b)
         {
             tacka A = a.centriraj();
             tacka B = b.centriraj();
             return A.x * B.x + A.y * B.y;
         }
-        static public double VP(vektor a, vektor b)
+        static public double VP(Vektor a, Vektor b)
         {
             tacka A = a.centriraj();
             tacka B = b.centriraj();
-            double k = A.x * B.y + A.y * B.x;
+            double k = A.x * B.y - A.y * B.x;
             return k;
         }
-
+        public double duzina()
+        {
+            tacka finalna = this.centriraj();
+            return finalna.d();
+        }
     }
 }

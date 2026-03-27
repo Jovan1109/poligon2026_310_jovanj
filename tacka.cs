@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace poligon2026_310_jovanj
 
 {
-    internal class tacka
+    class tacka
     {
         public double x, y;
         public tacka(double a, double b)
@@ -27,7 +27,7 @@ namespace poligon2026_310_jovanj
         }
         public double ugao()
         {
-            return Math.Atan2(y, x) * 180 / Math.PI;
+            return Math.Atan2(x, y) * 180 / Math.PI;
         }
     }
 }
